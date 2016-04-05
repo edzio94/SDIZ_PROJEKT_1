@@ -8,61 +8,42 @@
 #ifndef SDIZ_PROJEKT_1_TWODLIST_H
 #define SDIZ_PROJEKT_1_TWODLIST_H
 
-#endif //SDIZ_PROJEKT_1_TWODLIST_H
 
-
-class TwoDList{
+class TwoDList {
 public:
-    struct List{
+    struct List {
         int val;
-        List* prev;
-        List* next;
-    }*list;
+        List *prev;
+        List *next;
+    } *list_begin, *list_end;
 
     int size;
+
     TwoDList(int value);
+
+    ~TwoDList();
+
+    void getEndList();
+
     /*TwoDList*/ void addToBegin(int value);
+
     void addToEnd(int value);
+
     void showList();
+
+    void addToIndex(int index, int value);
+
+    void delFromBegin();
+
+    void delFromEnd();
+
+    void delFromIndex(int index);
 
 
 };
-TwoDList::TwoDList(int value) {
-    list = new List;
-    list->val = value;
-    list->prev = NULL;
-    list->next = NULL;
-    size = 1;
 
-}
+#endif //SDIZ_PROJEKT_1_TWODLIST_H
 
-void TwoDList::addToBegin(int value) {
-    List* a = new List;
-    a->val = value;
-    a->next = list;
-    a->prev = NULL;
-    list->prev = a;
-    list = a;
-}
-void TwoDList::addToEnd(int value) {
-List* a = new List;
-    a->val = value;
-    a->next = NULL;
-    do{
-        std::cout << list->val << std::endl;
-        list = list->next;
 
-    }while (list->next != NULL);
-    a->prev = list;
-    list->next = a;
 
-}
 
-void TwoDList::showList() {
-    do{
-        std::cout << list->val << std::endl;
-        list = list->next;
-    }while (list->next != NULL);
-    std::cout<< list ->val << std::endl;
-
-}
