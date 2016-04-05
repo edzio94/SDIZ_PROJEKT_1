@@ -5,6 +5,7 @@
 
 #include <iomanip>
 #include <climits>
+#include <cstring>
 #include "BinaryHeap.h"
 
 BinaryHeap::BinaryHeap(int size) {
@@ -19,6 +20,9 @@ BinaryHeap::BinaryHeap(int size) {
 }
 
 void BinaryHeap::addToHeap(int value) {
+    if (currentIndex>= size)
+        resize();
+
     if (currentIndex < size) {
         heap[currentIndex] = value;
         int s = currentIndex;
@@ -34,8 +38,6 @@ void BinaryHeap::addToHeap(int value) {
         currentIndex++;
 
     }
-    else
-        printf("Heap is full. Cannot add value \n");
 }
 
 void BinaryHeap::deleteRoot() {
@@ -60,7 +62,7 @@ void BinaryHeap::deleteRoot() {
                 break;
         }
         currentIndex--;
-
+        decreaseArray();
     }
     else
         printf("Cannot delete root. There's none");
@@ -70,7 +72,9 @@ void BinaryHeap::deleteRoot() {
 void BinaryHeap::showHeap() {
     printf("============= H E A P============= \n");
 int levels = 0;
+
     int s = size;
+    printf ("ROZMIAR KOPCA: %d \n",size);
     while(s != 1)
     {
         s/=2;
@@ -103,6 +107,32 @@ int levels = 0;
 
 
 }
+
+void BinaryHeap::resize() {
+
+        int *newArr = new int[++size];
+        memcpy(newArr, heap, (size - 1) * sizeof(int));
+
+        delete[] heap;
+        heap = newArr;
+        heap[size -1] = 0;
+
+}
+
+void BinaryHeap::decreaseArray() {
+
+        int *newArr = new int[--size];
+        memcpy(newArr, heap, (size) * sizeof(int));
+
+        delete[] heap;
+        heap = newArr;
+
+
+}
+
+
+
+
 
 
 

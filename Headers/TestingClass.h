@@ -5,7 +5,6 @@
 #ifndef SDIZ_PROJEKT_1_TESTINGCLASS_H
 #define SDIZ_PROJEKT_1_TESTINGCLASS_H
 #include <chrono>
-#include "FileParser.h"
 #include "DataHandler.h"
 #include "Array.h"
 #include "BinaryHeap.h"

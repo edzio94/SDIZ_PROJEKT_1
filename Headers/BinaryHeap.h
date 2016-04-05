@@ -21,6 +21,9 @@ public:
     void deleteRoot();
     void showHeap();
 
+    void resize();
+
+    void decreaseArray();
 };
 
 #endif //SDIZ_PROJEKT_1_BINARYHEAP_H

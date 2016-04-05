@@ -1,18 +1,18 @@
 #include <iostream>
-#include "Headers/FileParser.h"
+
 #include "Headers/DataHandler.h"
 #include "Headers/BinaryHeap.h"
 #include "Headers/TwoDList.h"
 #include "Headers/Array.h"
 #include "Headers/TestingClass.h"
 #include "Headers/Menu.h"
-#include "Headers/BSTree.h"
+#include "Headers/FileParser.h"
 
 
 using namespace std;
 
 bool checkRange(int index, int size);
-void init_classes(FileParser &s,Array &array, TwoDList &twoDList, BinaryHeap &binaryHeap, BSTree &bsTree);
+void init_classes(FileParser &s,Array &array, TwoDList &twoDList, BinaryHeap &binaryHeap);
 void menu();
 int main() {
     FileParser fileParser("t.txt");
@@ -25,9 +25,9 @@ int main() {
    // dataHandler.inputData = fileParser.outputVector();
     BinaryHeap binaryHeap = NULL;
     TwoDList twoDList = NULL;
-    BSTree bsTree;
+
     Array tab = NULL;
-    init_classes(fileParser,tab,twoDList,binaryHeap,bsTree);
+    init_classes(fileParser,tab,twoDList,binaryHeap);
 
 
 
@@ -156,7 +156,7 @@ bool checkRange(int index, int size) {
  * @param TwoDList
  * @Param BinaryHeap
  */
-void init_classes(FileParser &s,Array &array, TwoDList &twoDList, BinaryHeap &binaryHeap, BSTree &bsTree) {
+void init_classes(FileParser &s,Array &array, TwoDList &twoDList, BinaryHeap &binaryHeap) {
     int tmp;
     int size = s.getNumber();
     printf("TMP: %d \n",size);
